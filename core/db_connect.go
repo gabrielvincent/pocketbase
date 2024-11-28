@@ -9,15 +9,9 @@ import (
 	"time"
 
 	"github.com/pocketbase/dbx"
-	"github.com/pocketbase/pocketbase/core"
 	"github.com/tursodatabase/go-libsql"
 	_ "modernc.org/sqlite"
 )
-
-type TursoCredentials struct {
-	DBURL   string
-	DBToken string
-}
 
 func DefaultDBConnect(dbPath string) (*dbx.DB, error) {
 	// Note: the busy_timeout pragma must be first because
@@ -41,7 +35,7 @@ func TursoDBConnect(dbPath string, creds TursoCredentials) func(dbPath string) (
 		pragmas := "?_pragma=busy_timeout(100000)&_pragma=journal_mode(WAL)&_pragma=journal_size_limit(200000000)&_pragma=synchronous(NORMAL)&_pragma=foreign_keys(ON)&_pragma=temp_store(MEMORY)&_pragma=cache_size(-16000)"
 
 		if strings.HasSuffix(dbPath, "auxiliary.db") {
-			return core.DefaultDBConnect(dbPath)
+			return DefaultDBConnect(dbPath)
 		}
 
 		connector, err := libsql.NewEmbeddedReplicaConnector(dbPath, creds.DBURL,
@@ -55,6 +49,9 @@ func TursoDBConnect(dbPath string, creds TursoCredentials) func(dbPath string) (
 		}
 
 		db := dbx.OpenDB(connector, "sqlite", dbPath+pragmas)
+		if err != nil {
+			return nil, err
+		}
 
 		if _, err := connector.Sync(); err != nil {
 			return nil, fmt.Errorf("libsql sync error: %v", err)
