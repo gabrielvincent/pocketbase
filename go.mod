@@ -24,6 +24,7 @@ require (
 	github.com/pocketbase/tygoja v0.0.0-20241015175937-d6ff411a0f75
 	github.com/spf13/cast v1.7.0
 	github.com/spf13/cobra v1.8.1
+	github.com/tursodatabase/go-libsql v0.0.0-20241113154718-293fe7f21b08
 	gocloud.dev v0.40.0
 	golang.org/x/crypto v0.29.0
 	golang.org/x/net v0.31.0
@@ -33,6 +34,7 @@ require (
 )
 
 require (
+	github.com/antlr4-go/antlr/v4 v4.13.0 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.7 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.20 // indirect
@@ -58,6 +60,7 @@ require (
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
+	github.com/libsql/sqlite-antlr4-parser v0.0.0-20240327125255-dbf53b6cbf06 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
@@ -85,3 +88,5 @@ require (
 	modernc.org/strutil v1.2.0 // indirect
 	modernc.org/token v1.1.0 // indirect
 )
+
+replace github.com/pocketbase/dbx => github.com/gabrielvincent/dbx v1.10.1
