@@ -1,4 +1,4 @@
-module github.com/pocketbase/pocketbase
+module github.com/gabrielvincent/pocketbase
 
 go 1.23
 
@@ -20,7 +20,7 @@ require (
 	github.com/ganigeorgiev/fexpr v0.4.1
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
 	github.com/golang-jwt/jwt/v4 v4.5.1
-	github.com/pocketbase/dbx v1.10.1
+	github.com/gabrielvincent/dbx v1.10.1
 	github.com/pocketbase/tygoja v0.0.0-20241015175937-d6ff411a0f75
 	github.com/spf13/cast v1.7.0
 	github.com/spf13/cobra v1.8.1
@@ -88,5 +88,3 @@ require (
 	modernc.org/strutil v1.2.0 // indirect
 	modernc.org/token v1.1.0 // indirect
 )
-
-replace github.com/pocketbase/dbx => github.com/gabrielvincent/dbx v1.10.1
